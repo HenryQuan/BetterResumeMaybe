@@ -3,7 +3,6 @@ Extract your resume from a PDF file.
 """
 import pdfplumber
 import os
-import re
 
 def extract_resume(file_path: str):
     """
@@ -15,8 +14,6 @@ def extract_resume(file_path: str):
     with pdfplumber.open(file_path) as pdf:
         for page in pdf.pages:
             text += page.extract_text()
-    # Remove the newlines and extra spaces
-    text = re.sub(r"\s+", " ", text)
     return text
 
 if __name__ == "__main__":

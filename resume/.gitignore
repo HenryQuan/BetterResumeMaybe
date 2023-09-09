@@ -1,2 +1,7 @@
-*.pdf
 openai.key
+__pycache__
+
+# documents
+*.pdf
+job_post.txt
+new_resume.md
