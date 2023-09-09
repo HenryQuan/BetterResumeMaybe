@@ -1,2 +1,4 @@
 # Better Resume Maybe
-This project helps you with your resume focusing on the field of IT. It uses OpenAI
+Use magic to help with resume.
+
+No guarantee of anything. Use at your own risk. Don't take what AI says seriously. 

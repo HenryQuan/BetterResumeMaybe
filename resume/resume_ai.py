@@ -18,6 +18,12 @@ def print(*args, **kwargs):
 
 
 class ResumeInfo:
+    """
+    Information required for the AI to score, review or rewrite the resume.
+    additional - this is appended at the end
+    instruction - this is prepended at the start
+    """
+
     def __init__(
         self, resume: str, job_post: str, additional: str = "", instruction: str = ""
     ) -> None:
@@ -121,12 +127,18 @@ class ResumeAI:
         return self.custom_output(info, "resume/new_resume.md")
 
     def custom(self, info: ResumeInfo) -> str:
+        """
+        Use this function for any custom instructions
+        """
         role_description = self._role.description()
         final_message = info.generate_prompt(role_description)
         response = self._ask_turbo(final_message)
         return self._retrieve_output(response)
 
     def custom_output(self, info: ResumeInfo, file_name: str) -> str:
+        """
+        Use this function for any custom instructions with output to a file
+        """
         output = self.custom(info)
         with open(file_name, "w", encoding="utf-8") as f:
             f.write(output)
