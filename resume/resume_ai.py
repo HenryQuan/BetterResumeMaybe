@@ -180,13 +180,15 @@ if __name__ == "__main__":
     # exit()
 
     # review
-    my_resume = extract_resume("resume/resume.pdf")
+    # my_resume = extract_resume("resume/resume.pdf")
+    with open("resume/resume.txt", encoding="utf-8") as f:
+        my_resume = f.read()
     my_resume = resume.shrink_input(my_resume)
     with open("resume/job_post.txt", encoding="utf-8") as f:
         job_post = f.read()
     job_post = resume.shrink_input(job_post)
     resume_info = ResumeInfo(my_resume, job_post)
-    print(resume.score_and_review_avg(resume_info))
+    # print(resume.score_and_review_avg(resume_info, 5))
 
     # rewrite
-    # print(resume.rewrite(resume_info))
+    print(resume.rewrite(resume_info))
